@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require "ffi_gen"
+
+# Install libsamplerate from meganerd.com
+# and add it to you LD_LIBRARY_PATH
+
+FFIGen.generate(
+  module_name: "Libsamplerate::FFI",
+  ffi_lib:     "libsamplerate",
+  headers:     ["samplerate.h"],
+  cflags:      [],
+  prefixes:    [],
+  output:      "lib/libsamplerate/ffi.rb"
+)
