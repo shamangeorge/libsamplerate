@@ -1,0 +1,11 @@
+image: "ruby:latest"
+
+before_script:
+  - apt-get update -q
+  - apt-get install libsndfile-dev libsamplerate-dev libsox-dev sox -yqq
+  - gem install bundler --no-ri --no-rdoc
+  - bundle install -j $(nproc) --path vendor
+
+rspec:
+  script:
+  - bundle exec rspec
